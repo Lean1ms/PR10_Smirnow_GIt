@@ -1,0 +1,17 @@
+name: da
+on: push
+
+jobs:
+  MyBuild:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x' # Укажите вашу версию (например, 6.0.x, 7.0.x или 8.0.x)
+
+      - name: Run Project
+        run: dotnet run --project ./PR10_GIT_smir/PR10_GIT_smir.csproj
